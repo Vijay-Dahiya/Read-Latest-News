@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="item"
+            type="com.vijay.newsappdailyupdates.model.remote.ArticlesItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.DetailedActivity">
+
+        <ImageView
+            android:id="@+id/fullImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:loadImage="@{item.urlToImage}"
+            android:scaleType="centerCrop"
+            tools:layout_editor_absoluteX="-65dp"
+            tools:layout_editor_absoluteY="90dp" />
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="24dp"
+            android:background="@drawable/arrow_back"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="24dp"
+            android:text="@{item.description}"
+            android:textColor="#bababa"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            />
+
+        <TextView
+            android:id="@+id/tvSourceName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginBottom="16dp"
+            android:hint="Source"
+            android:text="@{item.source.name}"
+            android:textColor="#f2f2f2"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@id/description"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPublishDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:hint="date"
+            android:maxLength="10"
+            android:text="@{item.publishedAt}"
+            android:textColor="#f2f2f2"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvSourceName" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="64dp"
+            android:text="@{item.title}"
+            android:textColor="#f2f2f2"
+            android:textSize="29sp"
+            app:layout_constraintBottom_toTopOf="@id/tvSourceName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
